@@ -46,7 +46,7 @@ const ComponentWithClipboard = () => {
 The default update frequency of the clipboard content is 1 second which can be overridden by calling `useClipboard` with an argument which is an options object, and has a member called `updateFrequency` that indicates the desired update frequency in milliseconds:
 
 ```jsx
-  const [clipboard, copyToClipboard] = useClipboard({updateFrequency: 500}) 
+const [clipboard, copyToClipboard] = useClipboard({updateFrequency: 500}) 
 ```
 
 Read more about this in [Caveats](#caveats).
