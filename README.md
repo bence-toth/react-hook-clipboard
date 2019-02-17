@@ -1,4 +1,4 @@
-# react-hook-clipboard
+# react-hook-clipboard :clipboard:
 
 A React hook to access the clipboard.
 
