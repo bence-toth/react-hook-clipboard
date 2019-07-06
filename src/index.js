@@ -23,18 +23,18 @@ const useClipboard = ({updateFrequency = 1000} = {}, onReadError) => {
   }
 
   useEffect(() => {
-    let readClipboardInterval
+    let readClipboardIntervalId
     if (navigator.permissions && navigator.clipboard) {
       navigator.permissions.query({name: 'clipboard-read'}).then(({state}) => {
         if (['granted', 'prompt'].includes(state)) {
-          readClipboardInterval = setInterval(() => {
+          readClipboardIntervalId = setInterval(() => {
             navigator.clipboard.readText().then(
               clipboardContent => {
                 setClipboardContent(clipboardContent)
               },
               onReadError ||  (() => {})
             )
-          }, updateFrequency) 
+          }, updateFrequency)
             }
         else {
           onReadError({message: 'ClipboardRead permission has been blocked as the user.'})
@@ -43,7 +43,7 @@ const useClipboard = ({updateFrequency = 1000} = {}, onReadError) => {
     }
     return () => {
       if (navigator.clipboard) {
-        clearInterval(readClipboardInterval)
+        clearInterval(readClipboardIntervalId)
       }
     }
   }, [])
