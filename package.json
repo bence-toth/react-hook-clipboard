@@ -1,6 +1,6 @@
 {
   "name": "react-hook-clipboard",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A React hook for accessing clipboard",
   "keywords": [
     "react",
